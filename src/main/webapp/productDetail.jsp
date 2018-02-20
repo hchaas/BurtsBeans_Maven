@@ -31,16 +31,36 @@
             <main>
                 <div>
                     <h2>Burt's Coffee Beans</h2>
-                    <%  
-                        Product product = (Product)request.getAttribute("product");
-  
-                    %>
+
                     <h3> Product Detail - <c:out value="${product.productName}"/></h3>
 
                     <%--details to be added later--%>
-                    <center><p><c:out value="${product.productDescription}"/></p></center>        
-                   
-                    
+                    <center>
+                        <p><c:out value="${product.productDescription}"/></p>        
+
+                        <br>
+                        <h4>Other Products You Might Like:</h4>
+                        
+        <table>
+
+                <tr>
+                    <td>
+                       Coffee Mug
+                    </td>
+                    <td>
+                        Coffee Shirt
+                    </td>
+                    <td>
+                        Coffee Chia Pet
+                    </td>
+
+                </tr>
+
+
+        </table>
+                        
+                        
+                    </center>
                     </body>
 
 

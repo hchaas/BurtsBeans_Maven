@@ -30,21 +30,22 @@
 </nav>
 
 <body>
-        
-        <table>
-            <c:forEach var="product" items="${productList}">
 
-                <tr>
-                    <td>
-                        <a href="?productID=<c:out value="${product.productID}"/>"><c:out value="${product.productName}"/></a>
-                    </td>
+    <table>
+        <c:forEach var="product" items="${productList}">
 
-                </tr>
+            <tr>
+            <center>
+                <td>
+                    <a href="?id=<c:out value="${product.productID}"/>"><c:out value="${product.productName}"/></a>
+                </td>
+            </center>
+            </tr>
 
-            </c:forEach>
+        </c:forEach>
 
-        </table>
-    
-    
+    </table>
+
+
 </body>
 </html>
