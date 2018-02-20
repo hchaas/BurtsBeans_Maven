@@ -31,22 +31,17 @@
             <main>
                 <div>
                     <h2>Burt's Coffee Beans</h2>
-                    //<c:out value="${name.id}"/>">
                     <%  
                         Product product = (Product)request.getAttribute("product");
   
                     %>
-                    
-                    <h3> Product Detail - <%= product.getProductName()%></h3>
+                    <h3> Product Detail - <c:out value="${product.productName}"/></h3>
 
                     <%--details to be added later--%>
-                    
-                    <center><p><%= product.getProductDescription()%></p></center>
-        
+                    <center><p><c:out value="${product.productDescription}"/></p></center>        
                    
                     
                     </body>
-
 
 
                 </div>

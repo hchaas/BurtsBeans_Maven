@@ -30,22 +30,21 @@
 </nav>
 
 <body>
-    <table>
-        <%
-            List<Product> productList = (List<Product>) request.getAttribute("productList");
-            for (Product product : productList) {
-        %>
-        <tr>
-            
-            <td>
-                <a href="?id=<%=product.getProductID()%>"><%= product.getProductName()%></a>
-            </td>
+        
+        <table>
+            <c:forEach var="product" items="${productList}">
 
-        </tr>
-        <%
-            }
-        %>
+                <tr>
+                    <td>
+                        <a href="?productID=<c:out value="${product.productID}"/>"><c:out value="${product.productName}"/></a>
+                    </td>
 
-    </table>
+                </tr>
+
+            </c:forEach>
+
+        </table>
+    
+    
 </body>
 </html>
