@@ -25,7 +25,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="products.html">Our Beans</a></li>
         <li><a href="requestinfoform.html">Request Details</a>
-        <li><a href="shoppingcart.html">Shopping Cart</a></li>
+        <li><a href="shoppingcart.jsp">Shopping Cart</a></li>
     </ul>
 </nav>
 
@@ -35,11 +35,13 @@
         <c:forEach var="product" items="${productList}">
 
             <tr>
-            <center>
                 <td>
                     <a href="?id=<c:out value="${product.productID}"/>"><c:out value="${product.productName}"/></a>
                 </td>
-            </center>
+                <td>
+                    <fmt:setLocale value = "en_US"/>
+                    <fmt:formatNumber value = "${product.pricePerPound}" type = "currency"/>
+                </td>
             </tr>
 
         </c:forEach>

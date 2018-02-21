@@ -6,12 +6,13 @@ public class Product {
     private String productName;
     private String productDescription;
     private int productQuantity;
+    private int pricePerPound;
 
-    public Product(String productID, String productName, String productDescription, int productQuantity) {
+    public Product(String productID, String productName, String productDescription, int pricePerPound) {
         this.setProductID(productID);
         this.setProductName(productName);
         this.setProductDescription(productDescription);
-        this.setProductQuantity(productQuantity);
+        this.setPricePerPound(pricePerPound);
     }
     
     public final void setProductID(String productID) throws IllegalArgumentException{
@@ -42,6 +43,17 @@ public class Product {
         this.productQuantity = productQuantity;
     }
 
+    public final void setPricePerPound(int pricePerPound) {
+        if(pricePerPound < 0){
+            throw new IllegalArgumentException("Product price cannot be less than zero.");
+        };
+        this.pricePerPound = pricePerPound;
+    }
+
+    public int getPricePerPound() {
+        return pricePerPound;
+    }
+    
     public final String getProductID() {
         return id;
     }

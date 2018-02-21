@@ -1,8 +1,12 @@
+<%-- 
+    Document   : shoppingcart
+    Created on : Feb 20, 2018, 6:18:03 PM
+    Author     : User
+--%>
 
-<%@page import="java.util.List"%>
-<%@page import="edu.wctc.dj.burtsbeans.model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -29,42 +33,23 @@
                 </ul>
             </nav>
             <main>
-                <div>
-                    <h2>Burt's Coffee Beans</h2>
+                <h2>Shopping Cart</h2>
+                <center><p>The following items have been saved in your shopping cart:</p></center>
+                <table>
+                    <tr>
+                        <td>
+                            Breakfast Blend
+                        </td>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            <fmt:formatNumber value="${product.pricePerPound}"/>  
+                        </td>
+                </table>
+                <br>
+                <center><input type="Submit" value="Complete Order"></center>
 
-                    <h3> Product Detail - <c:out value="${product.productName}"/></h3>
-
-                    <%--details to be added later--%>
-                    <center>
-                        <p><c:out value="${product.productDescription}"/></p>        
-                        <input name="addToCart"type="button" action="post" value="Add to Cart">
-                        <br>
-                        <h4>Other Products You Might Like:</h4>
-                        
-        <table>
-
-                <tr>
-                    <td>
-                       Coffee Mug
-                    </td>
-                    <td>
-                        Coffee Shirt
-                    </td>
-                    <td>
-                        Coffee Chia Pet
-                    </td>
-
-                </tr>
-
-
-        </table>
-                        
-                        
-                    </center>
-                    </body>
-
-
-                </div>
             </main>
             <footer>
                 Copyright &copy; 2018 Burt's Beans Wholesale Coffee<br>
@@ -73,4 +58,5 @@
         </body>
     </div>
 </html>
+
 

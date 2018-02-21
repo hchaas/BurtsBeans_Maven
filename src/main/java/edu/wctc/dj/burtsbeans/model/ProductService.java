@@ -8,9 +8,9 @@ import java.util.List;
 public class ProductService {
 
     private List<Product> productList = Arrays.asList(
-            new Product("1", "Light Roast", "Our light house blend offers a smooth, enchanting experience.", 0),
-            new Product("2", "Breakfast Blend", "Wake up with a crowd-pleasing favorite breakfast bean blend.", 0),
-            new Product("3", "Dark Roast", "The dark roast is Burt's specialty.", 0)
+            new Product("1", "Light Roast", "Our light house blend offers a smooth, enchanting experience.", 12),
+            new Product("2", "Breakfast Blend", "Wake up with a crowd-pleasing favorite breakfast bean blend.", 12),
+            new Product("3", "Dark Roast", "The dark roast is Burt's specialty.", 14)
     );
 
     public Product getProduct(String id) {
@@ -29,6 +29,7 @@ public class ProductService {
         List<Product> returnProduct = new ArrayList<Product>();
         for (Product product : productList) {
             if (product.getProductName().startsWith(search)
+                    || product.getProductName().contains(search)
                     || product.getProductDescription().contains(search)) {
                 returnProduct.add(product);
             }
