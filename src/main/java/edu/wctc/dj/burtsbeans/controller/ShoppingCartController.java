@@ -1,9 +1,12 @@
-
 package edu.wctc.dj.burtsbeans.controller;
 
+import edu.wctc.dj.burtsbeans.model.Product;
 import edu.wctc.dj.burtsbeans.model.ProductService;
+import edu.wctc.dj.burtsbeans.model.ShoppingCart;
+import edu.wctc.dj.burtsbeans.model.ShoppingCartService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedHashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,7 +32,7 @@ public class ShoppingCartController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ShoppingCartController</title>");            
+            out.println("<title>Servlet ShoppingCartController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ShoppingCartController at " + request.getContextPath() + "</h1>");
@@ -64,15 +67,27 @@ public class ShoppingCartController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        ProductService productService = new ProductService();
+
         ShoppingCartService shoppingCartService = new ShoppingCartService();
+        ProductService productService = new ProductService();
         RequestDispatcher dispatcher = null;
 
+        String quantityString = request.getParameter("quantity");
+        int quantity = Integer.parseInt(quantityString);
+
         String id = request.getParameter("id");
-        String search = request.getParameter("search");
+        Product product = productService.getProduct(id);
         
+        shoppingCartService.addToCart(product, quantity);
         
+        LinkedHashMap<Integer, Product> shoppingCart = shoppingCartService.getCartContents();
+        
+        request.setAttribute("cartList", shoppingCart);
+        request.setAttribute("product", product);
+        request.setAttribute("quantity", quantity);
+
+        dispatcher = request.getRequestDispatcher("/shoppingCart.jsp");
+
         processRequest(request, response);
     }
 

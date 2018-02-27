@@ -29,4 +29,9 @@ public class ShoppingCartService {
     public final void addToTotalCost(Product product, int productCost){
         cart.setTotalCartCost(product.getPricePerPound());
     }
+    
+    public final LinkedHashMap<Integer, Product> getCartContents (){
+        
+        return shoppingCart;
+    }
 }

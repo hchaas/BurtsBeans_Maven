@@ -36,30 +36,34 @@
 
                     <%--details to be added later--%>
                     <center>
-                        <p><c:out value="${product.productDescription}"/></p>        
-                        <input name="addToCart"type="button" action="post" value="Add to Cart">
-                        <br>
+                        <p><c:out value="${product.productDescription}"/></p>   
+                        <p>Enter number of pounds you would like, then click "add to cart"</p>
+                        <form method="post" action="ShoppingCartController">
+                            <input type="number" name="quantity"/>
+                            <input type="submit" value="Add to Cart"/>
+                        </form>
+                        
                         <h4>Other Products You Might Like:</h4>
-                        
-        <table>
 
-                <tr>
-                    <td>
-                       Coffee Mug
-                    </td>
-                    <td>
-                        Coffee Shirt
-                    </td>
-                    <td>
-                        Coffee Chia Pet
-                    </td>
+                        <table>
 
-                </tr>
+                            <tr>
+                                <td>
+                                    Coffee Mug
+                                </td>
+                                <td>
+                                    Coffee Shirt
+                                </td>
+                                <td>
+                                    Coffee Chia Pet
+                                </td>
+
+                            </tr>
 
 
-        </table>
-                        
-                        
+                        </table>
+
+
                     </center>
                     </body>
 
